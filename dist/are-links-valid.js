@@ -1,5 +1,7 @@
 'use strict';
 
+function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
+
 var visit = require('unist-util-visit');
 var rp = require('request-promise');
 var url = require('url');
@@ -48,7 +50,6 @@ function createRequest(file, link, settings) {
 function checkAndRemoveDubplicates(file, links, settings) {
   var duplicates = [];
   var valid = [];
-
   var uniq = links.map(function (link) {
     var obj = {
       count: 1,
@@ -58,9 +59,11 @@ function checkAndRemoveDubplicates(file, links, settings) {
     return obj;
   }).reduce(function (a, b) {
     var current = a[b.uri] || {};
+    var insts = current.insts || [];
+    insts.push(b.inst);
     a[b.uri] = {
       count: (current.count || 0) + b.count,
-      inst: b.inst
+      insts: insts
     };
 
     return a;
@@ -75,10 +78,10 @@ function checkAndRemoveDubplicates(file, links, settings) {
       var i = _step.value;
 
       var item = uniq[i];
-      if (item.count !== 1 && settings.whiteListDomains.indexOf(item.inst.link.host) === -1) {
-        duplicates.push(item.inst);
+      if (item.count !== 1 && settings.whiteListDomains.indexOf(item.insts[0].link.host) === -1) {
+        duplicates.push.apply(duplicates, _toConsumableArray(item.insts));
       } else {
-        valid.push(item.inst);
+        valid.push.apply(valid, _toConsumableArray(item.insts));
       }
     }
   } catch (err) {
@@ -121,17 +124,14 @@ function areLinksValidCheck(ast, file, preferred, done) {
 
   visit(ast, 'link', function (node) {
     var link = url.parse(node.url);
-
     if (link.host !== null) {
       // links without `host` are just `#hashes`
       links.push({ node: node, link: link });
     }
   });
-
   if (!settings.allowDuplicates) {
     links = checkAndRemoveDubplicates(file, links, settings);
   }
-
   var _iteratorNormalCompletion2 = true;
   var _didIteratorError2 = false;
   var _iteratorError2 = undefined;
