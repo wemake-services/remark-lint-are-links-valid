@@ -1,0 +1,15 @@
+{
+  "excludeFiles": [
+    "coverage/",
+    "node_modules/",
+    "dist/*"
+  ],
+  "preset": "airbnb",
+  "maximumLineLength": {
+    "value": 80,
+    "allExcept": [
+      "regex",
+      "urlComments"
+    ]
+  }
+}

@@ -1,0 +1,57 @@
+{
+  "name": "remark-lint-are-links-valid",
+  "version": "1.0.3",
+  "description": "Checks that all links are active",
+  "author": "Nikita Sobolev <mail@sobolevn.me>",
+  "contributors": [
+    "Nikita Tsyrlin <nstsyrlin@gmail.com>",
+    "Nikita Sobolev <mail@sobolevn.me>"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wemake-services/remark-lint-are-links-valid.git"
+  },
+  "files": [
+    "lib",
+    "dist",
+    "test"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "bluebird": "^3.4.0",
+    "mdast-util-to-string": "^1.0.0",
+    "object.defaults": "^0.3.0",
+    "remark": "^4.2.2",
+    "remark-lint": "^3.2.1",
+    "request-promise": "^3.0.0",
+    "unist-util-visit": "^1.0.0",
+    "when": "^3.7.7"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.9.0",
+    "babel-core": "^6.3.17",
+    "babel-eslint": "^5.0.0-beta6",
+    "babel-preset-es2015": "^6.3.13",
+    "coveralls": "^2.11.6",
+    "eslint": "^1.10.3",
+    "eslint-config-airbnb": "^2.1.1",
+    "eslint-plugin-react": "^3.11.3",
+    "istanbul": "^0.4.1",
+    "jscs": "^3.0.4",
+    "mocha": "^2.3.4",
+    "mocha-lcov-reporter": "^1.0.0"
+  },
+  "scripts": {
+    "build": "./node_modules/babel-cli/bin/babel.js lib -d dist",
+    "coveralls": "npm test && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
+    "test": "./node_modules/istanbul/lib/cli.js cover ./node_modules/mocha/bin/_mocha -- -R spec",
+    "lint-style": "./node_modules/jscs/bin/jscs --reporter inline .",
+    "lint-code": "./node_modules/eslint/bin/eslint.js lib/* test/*",
+    "lint": "npm run lint-code && npm run lint-style"
+  },
+  "bugs": {
+    "url": "https://github.com/wemake-services/remark-lint-are-links-valid/issues"
+  },
+  "homepage": "https://github.com/wemake-services/remark-lint-are-links-valid",
+  "main": "dist/are-links-valid.js"
+}
