@@ -2,7 +2,9 @@
 
 [![Build Status](https://travis-ci.org/wemake-services/remark-lint-are-links-valid.svg?branch=master)](https://travis-ci.org/wemake-services/remark-lint-are-links-valid) [![Coverage Status](https://coveralls.io/repos/github/wemake-services/remark-lint-are-links-valid/badge.svg?branch=master)](https://coveralls.io/github/wemake-services/remark-lint-are-links-valid?branch=master)
 
+This rule checks every link in your `Markdown` file to point to the existing resource. There are also different options to configure.
 
+Inspired by [awesome_bot](https://github.com/dkhamsing/awesome_bot).
 
 ## Using the rule
 
@@ -32,7 +34,7 @@ Now you can use the following command to run the lint:
 remark --no-stdout xxx.md
 ```
 
-#### Using another ending symbol
+#### Using different options
 
 Set up your `.remarkrc`:
 
@@ -42,12 +44,25 @@ Set up your `.remarkrc`:
     "remark-lint": {
       "external": ["remark-lint-are-links-valid"],
       "are-links-valid": {
-        "endings": ["...", ";", "."]
-        }
+        "allowDuplicates": false,
+        "whiteListDomains": ['github.com'],
+
+        "allowErrors": [301],
+        "allowRedirects": true,
+        "timeout": 10000,
+      }
     }
   }
 }
 ```
+
+Options:
+
+- `allowDuplicates`, defaults to `true`, if set to `false` checks for each domain to be unique on the page, some domains can be whitelisted by the `whiteListDomains` option.
+- `whiteListDomains`, defaults to `[]`, if both `allowDuplicates` is set to `false` and it is set to any array containing string domains, will not raise any warnings when there are multiple urls for the same domain on the single page.
+- `allowErrors`, defaults to `[]`, when the link is validated it is expected to have the `HTTP` status code `2XX`, this setting allows to add any other numeric values.
+- `allowRedirects`, defaults to `true`, when set to `false` will not follow any redirects from the linked resource.
+- `timeout`, defaults to `5000`, change this value to set the desired timeout for the request.
 
 ### Via CLI
 

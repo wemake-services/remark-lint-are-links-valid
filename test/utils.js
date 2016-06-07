@@ -35,7 +35,9 @@ function loadFixture(fixtureName) {
 }
 
 function createMessage(line, column, href, duplicate) {
-  const message = duplicate ? `Link is a duplicate: ${href}` : `Link is broken: ${href}`;
+  const message = duplicate ?
+    `Link is a duplicate: ${href}` : `Link is broken: ${href}`;
+
   return {
     name: line + ':' + column,
     file: '',

@@ -1,6 +1,6 @@
 {
   "name": "remark-lint-are-links-valid",
-  "version": "1.0.3",
+  "version": "1.0.0",
   "description": "Checks that all links are active",
   "author": "Nikita Sobolev <mail@sobolevn.me>",
   "contributors": [
