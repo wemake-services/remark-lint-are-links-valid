@@ -7,20 +7,31 @@ var rp = require('request-promise');
 var url = require('url');
 var Promise = require('bluebird');
 var defaults = require('object.defaults');
+var start = require('mdast-util-position').start;
 
 function handleLinkDuplicateError(file, link) {
-  file.warn('Link is a duplicate: ' + link.link.href, link.node);
+  var _start = start(link.node);
+
+  var line = _start.line;
+  var column = _start.column;
+
+  file.warn('Link is a duplicate: ' + link.link.href, { line: line, column: column });
 }
 
 function handleLinkError(file, link) {
-  file.warn('Link is broken: ' + link.link.href, link.node);
+  var _start2 = start(link.node);
+
+  var line = _start2.line;
+  var column = _start2.column;
+
+  file.warn('Link is broken: ' + link.link.href, { line: line, column: column });
 }
 
 function handleResponse(response, file, link, settings) {
   var code = response.statusCode;
 
   // TODO: what else can be wrong?
-  if (!response.complete || !(/^2/.test('' + code) && !(code in settings.allowErrors))) {
+  if (!response.complete || !/^2/.test('' + code) && settings.allowErrors.indexOf(code) === -1) {
     handleLinkError(file, link);
   }
 }
@@ -33,15 +44,14 @@ function createRequest(file, link, settings) {
 
     // Thinks to be overridden:
     timeout: settings.timeout,
-    followRedirects: settings.allowRedirects
+    followRedirects: settings.allowRedirects,
+    simple: false
   };
 
   var promise = rp(options).promise();
 
   promise.then(function (r) {
     return handleResponse(r, file, link, settings);
-  }).catch(function () {
-    return handleLinkError(file, link);
   });
 
   return promise;
@@ -132,6 +142,7 @@ function areLinksValidCheck(ast, file, preferred, done) {
   if (!settings.allowDuplicates) {
     links = checkAndRemoveDubplicates(file, links, settings);
   }
+
   var _iteratorNormalCompletion2 = true;
   var _didIteratorError2 = false;
   var _iteratorError2 = undefined;
