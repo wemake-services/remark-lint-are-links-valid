@@ -45,7 +45,7 @@ Set up your `.remarkrc`:
       "external": ["remark-lint-are-links-valid"],
       "are-links-valid": {
         "allowDuplicates": false,
-        "whiteListDomains": ['github.com'],
+        "whiteListDomains": ["github.com"],
 
         "allowErrors": [301],
         "allowRedirects": true,
