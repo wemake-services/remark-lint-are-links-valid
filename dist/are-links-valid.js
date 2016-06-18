@@ -52,6 +52,8 @@ function createRequest(file, link, settings) {
 
   promise.then(function (r) {
     return handleResponse(r, file, link, settings);
+  }).catch(function (err) {
+    return handleLinkError(file, link);
   });
 
   return promise;

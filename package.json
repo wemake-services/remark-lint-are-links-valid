@@ -1,6 +1,6 @@
 {
   "name": "remark-lint-are-links-valid",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Checks that all links are active",
   "author": "Nikita Sobolev <mail@sobolevn.me>",
   "contributors": [
@@ -24,8 +24,7 @@
     "remark": "^4.2.2",
     "remark-lint": "^3.2.1",
     "request-promise": "^3.0.0",
-    "unist-util-visit": "^1.0.0",
-    "when": "^3.7.7"
+    "unist-util-visit": "^1.0.0"
   },
   "devDependencies": {
     "babel-cli": "^6.9.0",
@@ -44,7 +43,7 @@
   "scripts": {
     "build": "./node_modules/babel-cli/bin/babel.js lib -d dist",
     "coveralls": "npm test && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
-    "test": "./node_modules/istanbul/lib/cli.js cover ./node_modules/mocha/bin/_mocha -- -R spec",
+    "test": "npm run build && ./node_modules/istanbul/lib/cli.js cover ./node_modules/mocha/bin/_mocha -- -R spec",
     "lint-style": "./node_modules/jscs/bin/jscs --reporter inline .",
     "lint-code": "./node_modules/eslint/bin/eslint.js lib/* test/*",
     "lint": "npm run lint-code && npm run lint-style"
