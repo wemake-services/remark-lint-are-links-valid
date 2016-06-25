@@ -38,7 +38,8 @@
     "istanbul": "^0.4.1",
     "jscs": "^3.0.4",
     "mocha": "^2.3.4",
-    "mocha-lcov-reporter": "^1.0.0"
+    "mocha-lcov-reporter": "^1.0.0",
+    "publish-please": "^2.1.4"
   },
   "scripts": {
     "build": "./node_modules/babel-cli/bin/babel.js lib -d dist",
@@ -46,7 +47,9 @@
     "test": "npm run build && ./node_modules/istanbul/lib/cli.js cover ./node_modules/mocha/bin/_mocha -- -R spec",
     "lint-style": "./node_modules/jscs/bin/jscs --reporter inline .",
     "lint-code": "./node_modules/eslint/bin/eslint.js lib/* test/*",
-    "lint": "npm run lint-code && npm run lint-style"
+    "lint": "npm run lint-code && npm run lint-style",
+    "publish-please": "publish-please",
+    "prepublish": "publish-please guard"
   },
   "bugs": {
     "url": "https://github.com/wemake-services/remark-lint-are-links-valid/issues"

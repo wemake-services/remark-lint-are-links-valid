@@ -52,7 +52,7 @@ function createRequest(file, link, settings) {
 
   promise.then(function (r) {
     return handleResponse(r, file, link, settings);
-  }).catch(function (err) {
+  }).catch(function () {
     return handleLinkError(file, link);
   });
 
