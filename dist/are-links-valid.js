@@ -7,7 +7,7 @@ var rp = require('request-promise');
 var url = require('url');
 var Promise = require('bluebird');
 var defaults = require('object.defaults');
-var start = require('mdast-util-position').start;
+var start = require('unist-util-position').start;
 
 function handleLinkDuplicateError(file, link) {
   var _start = start(link.node);
