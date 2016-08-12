@@ -1,7 +1,7 @@
 {
   "name": "remark-lint-are-links-valid",
-  "version": "1.0.2",
-  "description": "Checks that all links are active",
+  "version": "1.0.3",
+  "description": "This package allows to check either a link points to the existing resource. ",
   "author": "Nikita Sobolev <mail@sobolevn.me>",
   "contributors": [
     "Nikita Tsyrlin <nstsyrlin@gmail.com>",

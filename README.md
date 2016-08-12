@@ -75,6 +75,10 @@ remark --no-stdout -u remark-lint="external:[\"remark-lint-are-links-valid\"]" x
 
 Note that the `lint=<lint_options>` option only works with `remark >= 1.1.1`.
 
+## Changelog
+
+See [CHANGELOG.md](CHANGELOG.md).
+
 ## License
 
 MIT, see [LICENSE.md](LICENCE.md) for details.
