@@ -6,7 +6,7 @@ const path = require('path');
 
 function createProccessor(settings) {
   const pluginOptions = {
-    external: ['../dist/are-links-valid.js'],
+    external: ['./dist/are-links-valid.js'],
   };
 
   if (settings !== undefined) {

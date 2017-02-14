@@ -10,19 +10,21 @@ var defaults = require('object.defaults');
 var start = require('unist-util-position').start;
 
 function handleLinkDuplicateError(file, link) {
-  var _start = start(link.node);
+  var allowDeadLinks = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
 
-  var line = _start.line;
-  var column = _start.column;
+  var _start = start(link.node),
+      line = _start.line,
+      column = _start.column;
 
-  file.warn('Link is a duplicate: ' + link.link.href, { line: line, column: column });
+  var notify = allowDeadLinks ? file.message : file.warn;
+
+  notify('Link is a duplicate: ' + link.link.href, { line: line, column: column });
 }
 
 function handleLinkError(file, link) {
-  var _start2 = start(link.node);
-
-  var line = _start2.line;
-  var column = _start2.column;
+  var _start2 = start(link.node),
+      line = _start2.line,
+      column = _start2.column;
 
   file.warn('Link is broken: ' + link.link.href, { line: line, column: column });
 }
@@ -42,7 +44,7 @@ function createRequest(file, link, settings) {
     uri: link.link.href,
     resolveWithFullResponse: true,
 
-    // Thinks to be overridden:
+    // Things to be overridden:
     timeout: settings.timeout,
     followRedirects: settings.allowRedirects,
     simple: false
@@ -123,6 +125,9 @@ function areLinksValidCheck(ast, file, preferred, done) {
     allowRedirects: true,
     allowErrors: [],
     timeout: 5000,
+
+    // This setting allows link to be dead:
+    allowDeadLinks: false,
 
     // These settings allow duplicate links validation:
     allowDuplicates: true,
