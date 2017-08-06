@@ -1,5 +1,5 @@
 const blc = require('broken-link-checker')
-const main = require('../../dist')
+const main = require('remark-lint-are-links-valid-core')
 
 function handleLinkDuplicateError (file, link, reason) {
   const message = `Link ${link.link.href} is not responding: ${reason}`

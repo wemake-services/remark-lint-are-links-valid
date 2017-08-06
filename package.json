@@ -18,13 +18,11 @@
   ],
   "license": "MIT",
   "scripts": {
-    "build:src": "babel src -d dist",
-    "build:packages": "lerna run build",
-    "build": "npm run build:src && npm run build:packages",
+    "build": "lerna bootstrap && lerna run build",
     "coveralls": "npm run test && cat ./coverage/lcov.info | ./node_modules/.bin/coveralls",
     "test:code": "cross-env NODE_ENV=test nyc mocha && nyc report --reporter=lcov",
     "test": "npm run build && npm run test:code && npm run lint",
-    "lint": "eslint src/ test/ packages/*/src.js"
+    "lint": "eslint test/ packages/*/src.js"
   },
   "eslintConfig": {
     "extends": "standard"
@@ -77,12 +75,6 @@
     "url": "https://github.com/wemake-services/remark-lint-are-links-valid/issues"
   },
   "homepage": "https://github.com/wemake-services/remark-lint-are-links-valid",
-  "main": "dist/are-links-valid.js",
-  "dependencies": {
-    "object.defaults": "^1.1.0",
-    "unified-lint-rule": "^1.0.1",
-    "unist-util-visit": "^1.1.3"
-  },
   "config": {
     "commitizen": {
       "path": "./node_modules/cz-lerna-changelog"

@@ -1,4 +1,4 @@
-const main = require('../../dist')
+const main = require('remark-lint-are-links-valid-core')
 
 function handleLinkDuplicateError (file, link) {
   const message = `Link is a duplicate: ${link.link.href}`
