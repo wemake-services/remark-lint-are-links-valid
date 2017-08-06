@@ -90,4 +90,4 @@ node_modules
 
 # This files are built by babel:
 dist/
-# packages/*/index.js
+packages/*/index.js

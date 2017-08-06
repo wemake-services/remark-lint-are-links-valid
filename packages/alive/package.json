@@ -1,0 +1,26 @@
+{
+  "name": "remark-lint-are-links-valid-alive",
+  "version": "0.0.0",
+  "description": "Checks if links are unique",
+  "main": "index.js",
+  "scripts": {
+    "build": "../../node_modules/.bin/babel src.js -o index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wemake-services/remark-lint-are-links-valid.git"
+  },
+  "keywords": [
+    "remark",
+    "remark-lint",
+    "links",
+    "validation",
+    "markdown"
+  ],
+  "author": "Nikita Sobolev",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/wemake-services/remark-lint-are-links-valid/issues"
+  },
+  "homepage": "https://github.com/wemake-services/remark-lint-are-links-valid#readme"
+}

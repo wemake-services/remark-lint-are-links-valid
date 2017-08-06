@@ -1,15 +1,10 @@
 {
-  "name": "duplicate-links",
-  "version": "2.0.0",
+  "name": "remark-lint-are-links-valid-duplicate",
+  "version": "0.0.0",
   "description": "Checks if links are unique",
   "main": "index.js",
   "scripts": {
     "build": "../../node_modules/.bin/babel src.js -o index.js"
-  },
-  "dependencies": {
-    "object.defaults": "^1.1.0",
-    "unified-lint-rule": "^1.0.1",
-    "unist-util-visit": "^1.1.3"
   },
   "repository": {
     "type": "git",
