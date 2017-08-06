@@ -19,10 +19,7 @@ script:
   - yarn coveralls
 
 after_success:
-  - npm install -g lerna-semantic-release
-  - lerna-semantic-release pre
-  - lerna-semantic-release perform
-  - lerna-semantic-release post
+  - npm run semantic-release
 
 notifications:
   email:
