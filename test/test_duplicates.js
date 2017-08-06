@@ -9,14 +9,14 @@ const remark = require('remark')
 const remarkLint = require('remark-lint')
 const dedent = require('dedent')
 
-const areLinksValid = require('../packages/duplicate-links')
+const duplicate = require('../packages/duplicate')
 
 // Utils:
 
 const lint = (md, options) => {
   return remark()
     .use(remarkLint)
-    .use(areLinksValid, options)
+    .use(duplicate, options)
     .process(md)
 }
 

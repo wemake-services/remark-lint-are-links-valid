@@ -1,4 +1,6 @@
-//
+// Basic logics for all packages.
+
+import url from 'url'
 
 import rule from 'unified-lint-rule'
 import visit from 'unist-util-visit'

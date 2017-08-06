@@ -1,5 +1,3 @@
-import url from 'url'
-
 import main from '../../dist'
 
 function handleLinkDuplicateError (file, link) {
