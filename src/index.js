@@ -1,10 +1,10 @@
 // Basic logics for all packages.
 
-import url from 'url'
+const url = require('url')
 
-import rule from 'unified-lint-rule'
-import visit from 'unist-util-visit'
-import defaults from 'object.defaults'
+const rule = require('unified-lint-rule')
+const visit = require('unist-util-visit')
+const defaults = require('object.defaults')
 
 const findLinks = (ast) => {
   const links = []
@@ -38,7 +38,7 @@ const createRule = (name, callback) => {
   )
 }
 
-module.exports = {
+export default {
   findLinks,
   getSettings,
   createRule

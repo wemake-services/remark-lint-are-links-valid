@@ -1,4 +1,4 @@
-import main from '../../dist'
+const main = require('../../dist')
 
 function handleLinkDuplicateError (file, link) {
   const message = `Link is a duplicate: ${link.link.href}`
@@ -7,7 +7,7 @@ function handleLinkDuplicateError (file, link) {
   file.info(message, node)
 }
 
-function checkAndRemoveDubplicates (file, links, settings) {
+function checkDubplicates (file, links, settings) {
   const duplicates = []
   const valid = {}
 
@@ -30,7 +30,7 @@ function areLinksDuplicate (ast, file, options) {
   const links = main.findLinks(ast)
   const settings = main.getSettings(options)
 
-  checkAndRemoveDubplicates(file, links, settings)
+  checkDubplicates(file, links, settings)
 }
 
 module.exports = main.createRule('duplicates', areLinksDuplicate)
