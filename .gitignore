@@ -91,3 +91,6 @@ node_modules
 # This files are built by babel:
 dist/
 packages/*/index.js
+
+# Coverage:
+.nyc_output

@@ -54,4 +54,6 @@ describe('Testing plugin with duplicated links', () => {
     return expect(result).to.eventually.have
       .property('messages').lengthOf(0)
   })
+
+  // TODO: check hash links
 })
