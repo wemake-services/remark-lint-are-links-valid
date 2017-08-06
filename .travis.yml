@@ -12,14 +12,10 @@ node_js:
 
 install:
   - npm install -g yarn lerna
-  - lerna bootstrap
-  - yarn install
+  - lerna bootstrap && yarn install
 
 script:
   - yarn coveralls
-
-after_success:
-  - npm run semantic-release
 
 notifications:
   email:
