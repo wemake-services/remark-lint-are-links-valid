@@ -54,6 +54,18 @@ describe('Testing plugin with duplicated links', () => {
     return expect(result).to.eventually.have
       .property('messages').lengthOf(0)
   })
+})
 
-  // TODO: check hash links
+
+describe('Hash links situation', () => {
+  it(`Expect no warnings`, (done) => {
+    const result = lint(dedent`
+      # Test
+      [Link](#test)
+    `)
+
+    expect(result).to.eventually.have
+      .property('messages').lengthOf(0)
+      .notify(done)
+  })
 })
