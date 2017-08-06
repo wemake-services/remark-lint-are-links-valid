@@ -18,12 +18,24 @@
   ],
   "license": "MIT",
   "scripts": {
-    "build": "lerna run build",
+    "build:src": "./node_modules/.bin/babel src -d dist",
+    "build:packages": "lerna run build",
+    "build": "npm run build:src && npm run build:packages",
     "coveralls": "npm run test && cat ./coverage/lcov.info | ./node_modules/.bin/coveralls",
     "test": "npm run build && ./node_modules/.bin/istanbul cover ./node_modules/.bin/mocha -- -R spec",
     "lint": "./node_modules/.bin/eslint packages/*/src.js"
   },
-  "eslintIgnore": ["packages/*/index.js"],
+  "eslintConfig": {
+    "extends": "standard"
+  },
+  "eslintIgnore": [
+    "packages/*/index.js"
+  ],
+  "babel": {
+    "presets": [
+      "es2015"
+    ]
+  },
   "devDependencies": {
     "babel-cli": "^6.24.1",
     "babel-core": "^6.25.0",
@@ -50,5 +62,10 @@
     "url": "https://github.com/wemake-services/remark-lint-are-links-valid/issues"
   },
   "homepage": "https://github.com/wemake-services/remark-lint-are-links-valid",
-  "main": "dist/are-links-valid.js"
+  "main": "dist/are-links-valid.js",
+  "dependencies": {
+    "object.defaults": "^1.1.0",
+    "unified-lint-rule": "^1.0.1",
+    "unist-util-visit": "^1.1.3"
+  }
 }

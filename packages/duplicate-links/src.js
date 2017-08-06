@@ -1,8 +1,6 @@
 import url from 'url'
 
-import rule from 'unified-lint-rule'
-import visit from 'unist-util-visit'
-import defaults from 'object.defaults'
+import main from '../../dist'
 
 function handleLinkDuplicateError (file, link) {
   const message = `Link is a duplicate: ${link.link.href}`
@@ -31,27 +29,10 @@ function checkAndRemoveDubplicates (file, links, settings) {
 }
 
 function areLinksDuplicate (ast, file, options) {
-  const defaultSettings = {
-    // These settings allow duplicate links validation:
-    allowDuplicates: false,
-    whiteListDomains: []
-  }
-  const settings = options || {}
-  defaults(settings, defaultSettings)
-
-  const links = []
-
-  visit(ast, 'link', (node) => {
-    const link = url.parse(node.url)
-    if (link.host !== null) { // links without `host` are just `#hashes`
-      links.push({node, link})
-    }
-  })
+  const links = main.findLinks(ast)
+  const settings = main.getSettings(options)
 
   checkAndRemoveDubplicates(file, links, settings)
 }
 
-module.exports = rule(
-  'remark-lint:are-links-valid:duplicate',
-  areLinksDuplicate
-)
+module.exports = main.createRule('duplicates', areLinksDuplicate)
