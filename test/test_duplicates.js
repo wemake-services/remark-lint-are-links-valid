@@ -38,8 +38,8 @@ describe('Are there duplicate links', () => {
         .property('messages').lengthOf(1)
     })
 
-    it('Expect no warnings with `allowDuplicates` setting', () => {
-      const result = lint(markdown, {allowDuplicates: true})
+    it('Expect no warnings with `whiteListDomains` setting', () => {
+      const result = lint(markdown, {whiteListDomains: ['github.com']})
 
       return expect(result).to.eventually.have
         .property('messages').lengthOf(0)

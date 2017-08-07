@@ -16,7 +16,6 @@ function checkDubplicates (file, links, settings) {
     if (!(url in valid)) {
       valid[url] = link
     } else if (
-      !settings.allowDuplicates &&
       settings.whiteListDomains.indexOf(link.link.host) === -1
     ) {
       duplicates.push(link)
