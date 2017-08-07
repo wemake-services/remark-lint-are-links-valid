@@ -1,6 +1,6 @@
 {
   "name": "remark-lint-are-links-valid-core",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Checks if links are valid",
   "main": "index.js",
   "scripts": {
