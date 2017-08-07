@@ -31,6 +31,16 @@ Add `remark-lint-are-links-valid-alive` to `remark`'s [configuration](https://gi
 `remark-lint-are-links-valid-alive` uses [`broken-link-checker`](https://www.npmjs.com/package/broken-link-checker) internally. So you can pass any its [options](https://www.npmjs.com/package/broken-link-checker#options) to `remark-lint-are-links-valid-alive`.
 
 
+## Changelog
+
+Follows `semver` and `conventional-commits`. See [CHANGELOG.md](CHANGELOG.md).
+
+
+## License
+
+MIT, see [LICENSE.md](LICENCE.md) for details.
+
+
 ## Part of a bigger family
 
 This project is a part of [remark-lint-are-links-valid](https://github.com/wemake-services/remark-lint-are-links-valid)
