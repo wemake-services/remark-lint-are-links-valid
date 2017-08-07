@@ -1,13 +1,13 @@
 {
   "name": "remark-lint-are-links-valid-duplicate",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "Checks if links are unique",
   "main": "index.js",
   "scripts": {
     "build": "../../node_modules/.bin/rollup -c ../../rollup.config.js -i src.js -o index.js"
   },
   "dependencies": {
-    "remark-lint-are-links-valid-core": "^0.1.0"
+    "remark-lint-are-links-valid-core": "^0.2.0"
   },
   "repository": {
     "type": "git",

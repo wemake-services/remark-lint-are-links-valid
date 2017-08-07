@@ -1,6 +1,6 @@
 {
   "name": "remark-lint-are-links-valid-alive",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "Checks if links are still alive",
   "main": "index.js",
   "scripts": {
@@ -8,7 +8,7 @@
   },
   "dependencies": {
     "broken-link-checker": "^0.7.6",
-    "remark-lint-are-links-valid-core": "^0.1.0"
+    "remark-lint-are-links-valid-core": "^0.2.0"
   },
   "repository": {
     "type": "git",
