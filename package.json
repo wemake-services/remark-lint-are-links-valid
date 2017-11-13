@@ -67,7 +67,7 @@
     "nyc": "^11.3.0",
     "remark": "^8.0.0",
     "remark-lint": "^6.0.0",
-    "rollup": "^0.45.2",
+    "rollup": "^0.51.5",
     "rollup-plugin-babel": "^2.7.1",
     "rollup-plugin-commonjs": "^8.1.0"
   },
