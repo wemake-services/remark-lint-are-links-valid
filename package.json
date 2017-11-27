@@ -51,7 +51,7 @@
     "babel-preset-es2015": "^6.24.1",
     "chai": "^4.1.1",
     "chai-as-promised": "^7.1.1",
-    "coveralls": "^2.13.1",
+    "coveralls": "^3.0.0",
     "cross-env": "^5.1.1",
     "cz-lerna-changelog": "^1.2.1",
     "dedent": "^0.7.0",
