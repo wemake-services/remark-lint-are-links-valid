@@ -28,7 +28,7 @@ Add `remark-lint-are-links-valid-duplicate` to `remark`'s [configuration](https:
 
 ## Options
 
-- `whiteListDomains` - this option will allow duplicate links for a specified domains, default: `[]`
+- `whiteListDomains` - this option will allow duplicate links for specified domains, default: `[]`
 
 
 ## Changelog

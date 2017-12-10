@@ -3,10 +3,6 @@
   "version": "0.0.0-development",
   "description": "This package allows to check either a link points to the existing resource.",
   "author": "Nikita Sobolev <mail@sobolevn.me>",
-  "contributors": [
-    "Nikita Tsyrlin <nstsyrlin@gmail.com>",
-    "Nikita Sobolev <mail@sobolevn.me>"
-  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/wemake-services/remark-lint-are-links-valid.git"
