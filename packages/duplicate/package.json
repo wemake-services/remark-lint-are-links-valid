@@ -1,6 +1,6 @@
 {
   "name": "remark-lint-are-links-valid-duplicate",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "Checks if links are unique",
   "main": "index.js",
   "scripts": {
