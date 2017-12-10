@@ -9,10 +9,10 @@
 Install only packages you need. See `packages/*` folder.
 
 Here are the list of rules:
-1. `remark-are-links-valid-duplicate` - checks that link is unique on a page
-2. `remark-are-links-valid-alive` - checks that link is reachable
+1. `remark-lint-are-links-valid-duplicate` - checks that link is unique on a page
+2. `remark-lint-are-links-valid-alive` - checks that link is reachable
 
 
 ## License
 
-MIT, see [LICENSE.md](LICENCE.md) for details.
+MIT, see [LICENSE.md](LICENSE.md) for details.
