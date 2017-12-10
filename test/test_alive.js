@@ -59,4 +59,28 @@ describe('Are links alive', () => {
         .notify(done)
     })
   })
+
+  describe('Ignored schemes', () => {
+    const ignoredURLs = [
+      {scheme: 'data', link: 'data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs='},
+      {scheme: 'geo', link: 'geo:37.786971,-122.399677'},
+      {scheme: 'irc', link: 'irc://irc.freenode.net/elixir-lang'},
+      {scheme: 'mailto', link: 'mailto:contact@wemake.services'},
+      {scheme: 'sms', link: 'sms:?body=Hello'},
+      {scheme: 'tel', link: 'tel:1-408-555-5555'}
+    ]
+
+    ignoredURLs.forEach(({scheme, link}) => {
+      it(`Expect no warnings on ${scheme} scheme`, (done) => {
+        const result = lint(`
+          # I sure do love links
+          [${scheme} link](${link})
+        `)
+
+        expect(result).to.eventually.have
+          .property('messages').lengthOf(0)
+          .notify(done)
+      })
+    })
+  })
 })
