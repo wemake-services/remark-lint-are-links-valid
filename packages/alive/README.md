@@ -30,6 +30,8 @@ Add `remark-lint-are-links-valid-alive` to `remark`'s [configuration](https://gi
 
 `remark-lint-are-links-valid-alive` uses [`broken-link-checker`](https://www.npmjs.com/package/broken-link-checker) internally. So you can pass any its [options](https://www.npmjs.com/package/broken-link-checker#options) to `remark-lint-are-links-valid-alive`.
 
+Note, that this plugin will skip [unsupported](https://github.com/wemake-services/remark-lint-are-links-valid/blob/master/packages/alive/src.js#L13) URL schemes.
+
 
 ## Changelog
 

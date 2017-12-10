@@ -5,7 +5,7 @@
 
 1. Fork `remark-are-links-valid`
 2. Create a topic branch
-3. Use `commitizen` to commit your changes
+3. Use `commitizen` to commit your changes, simply run `yarn commit` instead of `git commit`
 4. Push commits to your fork
 5. Open a pull request against `remark-are-links-valid/master`
 
