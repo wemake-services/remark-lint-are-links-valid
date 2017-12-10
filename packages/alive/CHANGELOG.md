@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.3.0"></a>
+# [0.3.0](https://github.com/wemake-services/remark-lint-are-links-valid/compare/remark-lint-are-links-valid-alive@0.2.1...remark-lint-are-links-valid-alive@0.3.0) (2017-12-10)
+
+
+### Bug Fixes
+
+* skip links for schemes that can't be checked ([6b97bcf](https://github.com/wemake-services/remark-lint-are-links-valid/commit/6b97bcf))
+
+
+### Features
+
+* **commit:** adds commitizen into scripts ([7cac9d3](https://github.com/wemake-services/remark-lint-are-links-valid/commit/7cac9d3))
+
+
+
+
 <a name="0.2.1"></a>
 ## [0.2.1](https://github.com/wemake-services/remark-lint-are-links-valid/compare/remark-lint-are-links-valid-alive@0.2.0...remark-lint-are-links-valid-alive@0.2.1) (2017-08-07)
 
