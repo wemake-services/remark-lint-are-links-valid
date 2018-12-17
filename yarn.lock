@@ -3515,8 +3515,8 @@ regjsparser@^0.1.4:
     jsesc "~0.5.0"
 
 remark-lint@^6.0.1:
-  version "6.0.1"
-  resolved "https://registry.yarnpkg.com/remark-lint/-/remark-lint-6.0.1.tgz#68b10ec25d5145042f7cfa52649e20ef7bc91482"
+  version "6.0.3"
+  resolved "https://registry.yarnpkg.com/remark-lint/-/remark-lint-6.0.3.tgz#6387f1123cbc539c577c4c04a5d97520122bdfc8"
   dependencies:
     remark-message-control "^4.0.0"
 
